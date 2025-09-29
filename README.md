@@ -1,5 +1,47 @@
 # aws-cloudformation
 
+
+
+
+# VPC Configuration
+
+## VPC
+- **Name:** `Soc-vpn`  
+- **IPv4 CIDR Block:** `10.0.0.0/16`
+
+## Subnets
+| Type            | Name       | Availability Zone | IPv4 CIDR Block | Auto-Assign Public IP |
+|-----------------|------------|-------------------|-----------------|-----------------------|
+| Public Subnet 1 | Public-1A  | us-east-1a        | 10.0.1.0/24     | Enabled |
+| Public Subnet 2 | Public-1B  | us-east-1b        | 10.0.2.0/24     | Enabled |
+| Private Subnet 1| Private-1A | us-east-1a        | 10.0.3.0/24     | Disabled |
+| Private Subnet 2| Private-1B | us-east-1b        | 10.0.4.0/24     | Disabled |
+
+## Route Table
+- **Name:** `Private-RT`
+- **ID:** `0000`
+- **VPC:** `MyVPC`
+- **Subnet Associations:** `Private-1A`, `Private-1B`
+
+## Internet Gateway
+- **Name:** `MyIGW`
+- **Attached to VPC:** `MyVPC`
+
+---
+
+### Testing Steps
+1. **Ping/SSH Test**  
+   - Launch an EC2 instance in **Public-1A** or **Public-1B** with a public IP.
+   - SSH in from your workstation to verify Internet access.
+
+2. **Private Subnet Access**  
+   - Launch an EC2 instance in **Private-1A** or **Private-1B** (no public IP).
+   - SSH to it from the public instance using its private IP to confirm internal routing.
+
+3. **Security Group/Network ACL Checks**  
+   - Ensure inbound/outbound rules allow SSH/ICMP as needed.
+
+
 Description:  This template deploys a VPC, with a pair of public and private subnets spread
   across two Availability Zones. It deploys an internet gateway, with a default
   route on the public subnets. It deploys a pair of NAT gateways (one in each AZ),
