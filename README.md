@@ -57,32 +57,32 @@ This architecture ensures:
 
 Use Cases
 
-This VPC design is a common best practice for secure and scalable AWS environments. It can be applied in different scenarios, such as:
+    This VPC design is a common best practice for secure and scalable AWS environments. It can be applied in different scenarios, such as:
 
 Web Application Hosting
 
-Host web servers in public subnets for internet access.
+    Host web servers in public subnets for internet access.
 
 Place application servers and databases in private subnets for security.
 
 Bastion Host Setup
 
-Use a bastion/jump server in a public subnet to securely connect to private subnet instances.
+    Use a bastion/jump server in a public subnet to securely connect to private subnet instances.
 
 SOC / Security Lab Environments
 
-Deploy monitoring and detection tools in private subnets.
-
-Simulate attacks and defenses in a safe, isolated lab network.
+    Deploy monitoring and detection tools in private subnets.
+    
+    Simulate attacks and defenses in a safe, isolated lab network.
 
 Hybrid Cloud Networking
 
-Extend on-premise infrastructure to AWS with VPN/Direct Connect.
-
-Keep sensitive workloads in private subnets while exposing only necessary services.
+    Extend on-premise infrastructure to AWS with VPN/Direct Connect.
+    
+    Keep sensitive workloads in private subnets while exposing only necessary services.
 
 Testing and Learning
 
-Practice AWS networking fundamentals (VPCs, subnets, IGWs, NAT Gateways, route tables, security groups).
-
-Validate secure patterns before deploying into production.
+    Practice AWS networking fundamentals (VPCs, subnets, IGWs, NAT Gateways, route tables, security groups).
+    
+    Validate secure patterns before deploying into production.
