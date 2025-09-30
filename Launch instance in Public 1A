@@ -1,0 +1,7 @@
+Launch instance in Public 1A
+aws ec2 run-instances --image-id --instance-type --security-group-ids --subnet-id --key-name --user-data
+
+Launch instance in Public 1B
+Launch instance in Private 1B
+Terminate instances
+aws ec2 terminate-instances --instance-ids
